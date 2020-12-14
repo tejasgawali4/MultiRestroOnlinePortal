@@ -1,0 +1,806 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Ionic 5 Food App with Firebase</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css"
+		media="screen, projection">
+	<style type="text/css" media="screen">
+		p,
+		table,
+		hr,
+		.box {
+			margin-bottom: 25px;
+		}
+
+		.box p {
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+
+
+<body>
+	<a href="https://www.youtube.com/watch?v=O-rKUsXTlAo&t=25s" target="_blank"
+		style="position: fixed;background: red;text-decoration: none; padding: 20px;color: white;">Video
+		Tutorial</a>
+	<div class="container">
+
+		<h3 class="center alt">&ldquo;Ionic 5 Food App with Firebase&rdquo; Documentation by &ldquo;initappz&rdquo; v1.0
+		</h3>
+
+		<hr>
+
+		<h1 class="center">&ldquo;Ionic 5 Food App with Firebase&rdquo;</h1>
+
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+						Created: 9/5/2020<br>
+						By: Rahul Jograna<br>
+						Email: <a href="mailto:info@initappz.com">info@initappz.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->
+
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my app. If you have any questions that are
+					beyond the scope of this help file, please feel free to email via my user page contact form <a
+						href="https://themeforest.net/user/initappz">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+
+		<hr>
+
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#start">Overview</a></li>
+			<li><a href="#folders">Folder Structure</a></li>
+			<li><a href="#ionicSetup">Ionic Setup</a></li>
+			<li><a href="#firebase">Firebase Setup</a></li>
+			<li><a href="#onesignal">OneSignal Setup (Push Notifications)</a></li>
+			<li><a href="#googleMaps">Google Maps Setup</a></li>
+			<li><a href="#stripeKeys">Stripe Payment Setup</a></li>
+			<li><a href="#paypalKeys">PayPal Payment Setup</a></li>
+			<li><a href="#adminSetup">Admin Panel Setup</a></li>
+			<li><a href="#videoLinks">Video Tutorial</a></li>
+			<li><a href="#sources">Sources and Credits</a></li>
+		</ol>
+
+		<hr>
+
+		<h3 id="htmlStructure"><strong>A) Overview</strong> - <a href="#toc">top</a></h3>
+		<p>This Ionic 5 Food Delivery app is fully functional and ready to use app with firebase backend,
+			you will receive 3 main
+			apps(User App, Restaurant App, Delivery App) including Admin Panel with support of PWA. App is regularly
+			tested with
+			Androird and iOS.App supports multi
+			restaurant, multiple cities , multi languages and multiple payment gateway. the app is well documented with
+			video
+			installations guides .</p>
+
+
+
+		<p style="text-align: left;font-size: 1.5rem;"><b>Features</b></p>
+		<p>
+		<ul>
+			<li>Fully functional. </li>
+			<li>3 Main Apps (User App,Restaurant App, Delivery App)+ Admin Panel PWA support.</li>
+			<li>Multi Restaurant supports. </li>
+			<li>Multi languages. </li>
+			<li>Mutli payment gateway (Cash on Delivery, PayPal,Stripe) </li>
+			<li>Unique and Attractive UI </li>
+			<li>Address From Geo Location</li>
+			<li>Live Location Tracking</li>
+			<li>Push Notification with Custom Alert</li>
+			<li>Print Order For User</li>
+			<li>Admin Invoice Generator</li>
+			<li>Restaurant Reviews </li>
+			<li>Food Reviews </li>
+			<li>Driver Reviews </li>
+			<li>Live Demo</li>
+		</ul>
+
+		<h3 id="folders"><strong>B) Folder Structure</strong> - <a href="#toc">top</a></h3>
+		<p>Once You Download the Product You will Receive the Zip File which contains Project Zip.
+			Named as ionic5FoodAppFull.zip</p>
+		<p>Unzip the ionic5FoodAppFull.Zip File And You Will Find The Zip File Of All The Projects Like in
+			ScreenShot:
+		</p>
+		<hr>
+		<img src="assets/images/folder.png" alt="Folder Structure" />
+		<p> <b>Open the Installations Guides.pdf File for Installations and Setup Instructions for ionic cli.</b></p>
+		<p><i>Note If you wish to Use whole project instead of the Some Content of Project then you can
+				Directly use it
+				as
+				Shown in
+				Installations Guides.pdf file</i></p>
+
+
+
+		<p>You will find the Folder name as App_code</p>
+		<p> Now Open Terminal for Mac or Command Prompt for Windows and Open App_code Folder
+			Inside
+			terminal.</p>
+		<img src="assets/images/terminal.png" alt="terminal" />
+		<p> Now Follow the Instructions in Installations Guides.pdf file for further Installations Steps.
+		</p>
+
+		<p> Now Open any app from App_code. for full configuration and comman we will open the UserApp or
+			folder inside
+			your
+			Code Editor Like Visula Studio code ,sublime
+			etc. you
+			will
+			see
+			the structure of Ionic Projects</p>
+		<img src="assets/images/code.png" alt="Project structure" />
+		<p> Now Open the config.xml file and Change the Name and Other Stuff like app version and app
+			package
+			name.</p>
+		<img src="assets/images/config.png" alt="config" />
+		<p>Next if you want to change the Theme Color of Your Application. you can do it from your self by
+			changing
+			the color code of this file. open src/app/theme/variables.scss file and you can find the rest of
+			the
+			code
+			like in image
+			you can change color of primary as your default app color</p>
+		<p><i>Note: color should be in hex format only.</i></p>
+		<img src="assets/images/color.png" alt="config" />
+		<p> Now to use rest of the Screens and Config you can find in app folder and pages,components,
+			folders
+		</p>
+		<img src="assets/images/folder2.png" alt="config" /><br>
+		<img src="assets/images/folder3.png" alt="config" /><br>
+		<img src="assets/images/folder4.png" alt="config" /><br>
+		<p>For FrontEnd designs you Can Edit the Code inside .html File and The css you can edit or add
+			inside .scss
+			file.</p>
+		<p>Ionic 5 use Html as FrontEnd designs which is Easy to Develop. you can find The Component of
+			Ionic From <a href="https://ionicframework.com/docs/components/">here</a>
+		</p>
+		<p>You can see the Structure of Html from in Image</p>
+		<img src="assets/images/html.png" alt="html Structure" style="width: 100%;" />
+		<br><br>
+		<p>Ionic 5 use scss as StyleSheet !, the scss is same as css.</p>
+		<img src="assets/images/scss.png" alt="scss Structure" style="width: 100%;" />
+		<br>
+		<br>
+		<p>Ionic 5 use Typescript as Business Login Development you can write your login inside the .ts
+			file.</p>
+		<img src="assets/images/ts.png" alt="scss Structure" style="width: 100%;" />
+
+		<hr>
+		<h3 id="ionicSetup"><strong>C) Ionic Setup</strong> - <a href="#toc">top</a></h3>
+
+		<p><b> If you already have ionic setup in your system then you can skip this step</b></p>
+		<h3>WHY IONIC 5</h3>
+		<p>
+			ionic 5 introduces our brand new open source animations utility, Ionic Animations, that provides the
+			tools developers
+			need to build highly performant animations regardless of the framework they are using
+
+		</p>
+		<p>
+			The largest change in this release of ionic 5 is a massive design upgrade across our UI components.
+			Apple recently released iOS 13,
+			which updated the design of many components and thus warranted some updates to our own. Let’s check out
+			some of the
+			changes we made to match native iOS!
+		</p>
+		<p>
+			All of these changes are made in the core of Ionic Framework, which also applies to our Angular, React,
+			and Vue (beta).
+		</p>
+		<p>
+			You may be concerned about the upgrade process due to the fact that this is a major version release, but
+			fret not! When
+			we migrated to follow the semantic versioning convention, we committed ourselves to publish a major
+			release when any
+			known incompatible API changes were introduced. So in this case, the major version just indicates that
+			our public API
+			has been updated. And because we now use Web Components, API changes are handled separately between our
+			UI components
+			and the JavaScript framework.
+		</p>
+
+		<h3>WHY ANGULAR</h3>
+		<p>
+			Angular implements MVC architecture to develop web application. It provides a platform where only few
+			attributes needs
+			to be added to the HTML language and progress with the development will be faster. It enhances HTML
+			which makes all
+			difficult tasks move smoothly
+		</p>
+		<p>
+			Angular makes it easy to arrange things like dynamic loading and dependencies and utilize them as
+			required without
+			worrying about instances and namespaces. Angular will take care of the complete life cycle of the
+			objects thus handles
+			dependencies in an exceptional way.
+		</p>
+		<p>
+			Angular contains many ready made tools and components that would reduce the development time, also in
+			each version
+			release of angular it is made simpler and faster.
+		</p>
+		<p>Angular utilizes two-way data binding; the benefit of two-way data binding is that updates to the
+			underlying data store
+			happen automatically. When the data store updates, the UI updates as well. This allows you to remove a
+			lot of logic from
+			the front-end display code, particularly when making effective use of Angular’s declarative approach to
+			UI presentation.
+			In essence, it allows for true data encapsulation on the front-end, reducing the need to do complex and
+			destructive
+			manipulation of the DOM.</p>
+
+		<h3><b>Installing Ionic</b></h3>
+		<p>Ionic apps are created and developed primarily through the Ionic command-line utility. The Ionic CLI is the
+			preferred
+			method of installation, as it offers a wide range of dev tools and help options along the way. It is also
+			the main tool
+			through which to run the app and connect it to other services, such as Ionic Appflow.</p>
+		<h3><b>Install the Ionic CLI</b></h3>
+		Before proceeding, make sure your computer has <a
+			href="https://ionicframework.com/docs/reference/glossary#node">Node.js</a> installed. <a
+			href="https://ionicframework.com/docs/intro/environment">See these instructions</a>
+		to set up an environment for
+		Ionic.
+		<p></p>
+		<h3><b> Install the Ionic CLI with npm:</b></h3>
+		<pre>
+		npm install -g @ionic/cli
+		</pre>
+		<p>If there was a previous installation of the Ionic CLI, it will need to be uninstalled due to a change in
+			package name.</p>
+		<pre>
+		npm uninstall -g ionic
+		npm install -g @ionic/cli
+		</pre>
+		<p>For More Installations guide follow <a href="https://ionicframework.com/docs/intro/cli">this instructions</a>
+		</p>
+		<hr>
+
+		<h3 id="firebase"><strong>D) Firebase setup</strong> - <a href="#toc">top</a></h3>
+
+		<p>Firebase gives you the tools to develop high-quality apps, grow your user base, and earn more
+			money. We cover the
+			essentials so you can monetize your business and focus on your users.</p>
+		<p>Let's Integrate Firebase in your app</p>
+		<p>open environment.ts file in src/environment folder, here you can find two environment file, one
+			is for debug mode and one is for production mode. you can set your credentials here for better
+			security</p>
+		<p>Visit Website for more about firebase and installation <a
+				href="https://github.com/angular/angularfire">here</a> </p>
+		<p>Now as you can see in below image, we have set many credentials for various apis </p>
+		<img src="assets/images/env.png" alt="Folder Structure" width="100%" />
+		<p>For firebase You have to create new Project</p>
+		<p>Open your browser and visit <a
+				href="http://console.firebase.google.com">http://console.firebase.google.com</a> </p>
+		<p>Login with your account in google account </p>
+		<p>Now Create new project as you can see in image below</p>
+		<p>Click on + to create new project in firebase</p>
+		<h3 style="color: red;"><b>Note All configuration is same for all the project so add this keys and credentials
+				inside other project's environment.prod.ts and in environment.ts file as well </b></h3>
+		<img src="assets/images/fire1.png" alt="" style="width: 100%;">
+		<p>Next is to give name of your project and click on continue button</p>
+		<img src="assets/images/fire2.png" alt="" style="width: 100%;">
+		<p> Now If you want to enable Google Analytics with your firebase project. then enable it as in image,
+			I recommended to not enable this for now and click continue button
+		</p>
+		<img src="assets/images/fire3.png" alt="" style="width: 100%;">
+		<p>Your Project is now ready to use click on continue button for navigate it to firebase dashboard </p>
+		<img src="assets/images/fire4.png" alt="" style="width: 100%;">
+
+		<p>As you can see in image below in firebase dashboard. firebase provides many functionality on left side of
+			image </p>
+		<p>For Our Application we want firebase project credentials. so click on that button as shown in image below
+		</p>
+		<img src="assets/images/fire5.png" alt="" style="width: 100%;">
+		<p>It will redirect to you in setup page, here we are creating app in firebase for credentials, so give you app
+			name here and if you wish to upload your admin panel to firebase then check that button for firebase hosting
+			and click Register Button
+		</p>
+		<img src="assets/images/fire6.png" alt="" style="width: 100%;">
+		<p>Click Next as we don't required it. </p>
+		<img src="assets/images/fire7.png" alt="" style="width: 100%;">
+		<p>Click Next as we don't required it. </p>
+		<img src="assets/images/fire8.png" alt="" style="width: 100%;">
+		<p>No click on continue to console buttons for our app credentials. </p>
+		<img src="assets/images/fire9.png" alt="" style="width: 100%;">
+		<p> Our App is now ready to use as you can see there is one app available which we have recently created. now
+			click on that app as you can see in image below </p>
+		<img src="assets/images/fire10.png" alt="" style="width: 100%;">
+		<p>Now click on that Setting icon for credentials as Shown image below </p>
+		<img src="assets/images/fire11.png" alt="" style="width: 100%;">
+		<p> You will redirected to new page with project settings and app credentials as you can see in image below.
+			scroll down and as you can see our recently created app is there </p>
+		<img src="assets/images/fire12.png" alt="" style="width: 100%;">
+		<p>Now on Firebase SDK snippet click on Config Buttons for firebase projects credentials. now copy and paste it
+			to our environment file. </p>
+		<h3 style="color: red;"><b>Note All configuration is same for all the project so add this keys and credentials
+				inside other project's environment.prod.ts and in environment.ts file as well </b></h3>
+		<img src="assets/images/fire13.png" alt="" style="width: 100%;">
+		<h3 style="color: red;"><b>Note All configuration is same for all the project so add this keys and credentials
+				inside other project's environment.prod.ts and in environment.ts file as well </b></h3>
+		</p>
+		<img src="assets/images/fireenv.png" alt="" style="width: 100%;">
+
+		<p>Now we almost done. but we have to setup this things as well</p>
+		<p><b>Note. This is Required</b></p>
+		<ol>
+			<li>
+				<h3><b>Authentication</b></h3>
+			</li>
+			<li>
+				<h3><b>Database</b></h3>
+			</li>
+			<li>
+				<h3><b>Storage</b></h3>
+			</li>
+		</ol>
+		<p></p>
+
+		<h3><b>1. Authentication </b></h3>
+		<p>First we will enabale authentications for authorizing users,restaurants,drivers.</p>
+		<p>in order to do that let's enable by clicking on authentication tab on menu, left side of dashboard as you can
+			see
+			in image below </p>
+		<ol>
+			<li>Click on Authentication</li>
+			<li>Click on Sign-in methods on tabs</li>
+			<li>Click on Email/Password</li>
+			<li>Enable Email/Password </li>
+			<li>Click Save</li>
+		</ol>
+		<img src="assets/images/fire14.png" alt="" style="width: 100%;">
+		<p>We are done with Authentication </p>
+
+		<h3><b>2. Database </b></h3>
+		<p>After Authentication we have to setup database for storing users,restaurants,orders data </p>
+		<p>For that let's enable database, by clicking on Database tabs on menu leftside of dashboard as you can see in
+			image, now click on Create Database button for getting started. </p>
+
+		<img src="assets/images/fire15.png" alt="" style="width: 100%;">
+		<p>Once you click on create database button it will ask you for mode of creation. here you can choose production
+			and test mode. </p>
+		<p>For that we will go with testing mode first, so select start in test modem and click next as you can see in
+			image below </p>
+		<img src="assets/images/fire16.png" alt="" style="width: 100%;">
+		<p>Next is to select database location,firebase will provide us many location of database server, here select
+			your nearest server, or choose it as from firebase. and click Done button as you can see in image below.
+			wait for minute it will create database for us and will direct us to database after succesfully done
+		</p>
+		<img src="assets/images/fire17.png" alt="" style="width: 100%;">
+		<p>After successfully created database you will see empty database on your secreen. </p>
+		<p>Here we have to set rules for using database, here firebase provide security of data by it's rules. we can
+			use data with user authentications and without user authentications, for our app we have used data open for
+			unknow user. so we have to setup rule as public. by changing it's default rule as you can see in image
+			below, click on Rules tab on database page, and change it rules as shown in image or you can find code below
+			as well
+		</p>
+		<pre>
+			rules_version = '2';
+			service cloud.firestore {
+			match /databases/{database}/documents {
+			
+			// This rule allows anyone on the internet to view, edit, and delete
+			// all data in your Firestore database. It is useful for getting
+			// started, but it is configured to expire after 30 days because it
+			// leaves your app open to attackers. At that time, all client
+			// requests to your Firestore database will be denied.
+			//
+			// Make sure to write security rules for your app before that time, or else
+			// your app will lose access to your Firestore database
+				match /{document=**} {
+						allow read, write: if true;
+					}
+				}
+			}
+		</pre>
+
+		<img src="assets/images/fire18.png" alt="" style="width: 100%;">
+		<p>After changing rules click on publish button on top of card as you can see in image below</p>
+		<p>We successfully Done with Database section</p>
+		<img src="assets/images/fire19.png" alt="" style="width: 100%;">
+		<p></p>
+		<h3><b>3. Storage </b></h3>
+		<p>Last but not least step is to configuring storage, for storing our images and other multimedia </p>
+		<p>in order to do that click on Storage tab on menu leftside of firebase dashboard. click on Get started button
+			to setup storage. as you can see in image below.</p>
+		<img src="assets/images/fire20.png" alt="" style="width: 100%;">
+		<p>After that it will show popup same as database as you can see in image below. Click on next buttons </p>
+		<img src="assets/images/fire21.png" alt="" style="width: 100%;">
+		<p>Same as Database it's asking location. but we already have selected on Database section, let choose it as
+			default, and click on done button as you can see in image below. and Wait for a minute it will create
+			storage for us</p>
+		<img src="assets/images/fire22.png" alt="" style="width: 100%;">
+		<p>After succesfully created storage it will show you empty page, becasue we haven't uploaded any file yet!, ok
+			next is to change it's rule same as database by clicking on rules tab on page and change it rule as you can
+			see in image bellow, or you can find rules code here. </p>
+		<pre>
+				rules_version = '2';
+				service firebase.storage {
+					match /b/{bucket}/o {
+						match /{allPaths=**} {
+						allow read, write;
+						}
+					}
+				}
+
+			</pre>
+		<img src="assets/images/fire23.png" alt="" style="width: 100%;">
+		<p>After changing it's rule click on publish button to save changes.</p>
+		<img src="assets/images/fire24.png" alt="" style="width: 100%;">
+		<h2 style="text-align: center;color: green;">🚀 &nbsp;&nbsp; We successfully integrated Firebase. &nbsp; &nbsp;
+			🚀</h2>
+		<img src="assets/images/firebase.gif" alt="" style="width: 100%;">
+		<p></p>
+		<h2><b> Code Example</b></h2>
+		<p>You can find login,register,authentication,create,delete,update code inside src/app/services/apis.service.ts
+		</p>
+		<h3><b>Login Example</b></h3>
+		<p>Here we have created separate service for firebase functions, as you can see we have created method for each
+			functions like for login,register,getting tables(Collections) data, updating data etc. as you can see in
+			example we have used promise structure.</p>
+		<pre>
+			public login(email: string, password: string): Promise<any> {
+				return new Promise<any>((resolve, reject) => {
+					this.fireAuth.auth.signInWithEmailAndPassword(email, password)
+					.then(res => {
+						if (res.user) {
+						this.db.collection('users').doc(res.user.uid).update({
+						fcm_token: localStorage.getItem('fcm') ? localStorage.getItem('fcm') : ''
+					});
+						this.authInfo$.next(new AuthInfo(res.user.uid));
+						resolve(res.user);
+						}
+					})
+					.catch(err => {
+					this.authInfo$.next(ApisService.UNKNOWN_USER);
+						reject(`login failed ${err}`);
+					});
+				});
+			}
+		</pre>
+		<h3><b>Getting User Profile Example</b></h3>
+
+		<pre>
+			public getProfile(id): Promise<any> {
+				return new Promise<any>((resolve, reject) => {
+					this.adb.collection('users').doc(id).get().subscribe((profile: any) => {
+						resolve(profile.data());
+					}, error => {
+						reject(error);
+					});
+				});
+			}
+		</pre>
+		<hr>
+		<h3 id="onesignal"><strong>E) OneSignal Setup </strong> - <a href="#toc">top</a></h3>
+		<p><b>Increase clicks and engagement</b></p>
+		<p>You can increase engagement by targeting users based on attributes like new foods, offers , and interests.
+		</p>
+		<img src="assets/images/push11.png" alt="" style="width: 100%;">
+		<p>For Sending Push Notifications we will create New App in OneSignal Website </p>
+		<p>Visit this link to create app <a href="https://app.onesignal.com">https://app.onesignal.com</a> </p>
+		<p>Login with your account in onesignal </p>
+		<p>Now Create new app as image below</p>
+		<img src="assets/images/push1.png" alt="" style="width: 100%;">
+		<p>By Clicking NEW APP/WEBSITE you will redirected to new app creation page as you can see image below </p>
+		<p>Now Give your App name and select Android Platform and click on configure your platform button </p>
+		<img src="assets/images/push2.png" alt="" style="width: 100%;">
+		<p>Now here it will ask for firebase server key and firebase sender id. this two ids are available in our
+			firebase project</p>
+		<img src="assets/images/push3.png" alt="" style="width: 100%;">
+		<p>Now visit our firebase project again and as you can see image below click on project overview setting icon
+			left side of firebase dashboard and click on project settings.</p>
+		<img src="assets/images/push4.png" alt="" style="width: 100%;">
+		<p>It will redirect to you project settings now click on cloud messaging on tabs. you will see keys for server
+			key and sender key. copy and paste it to onesignal app </p>
+
+
+		<img src="assets/images/push5.png" alt="" style="width: 100%;">
+		<p>Paste those keys here and click on next button</p>
+
+		<img src="assets/images/push6.png" alt="" style="width: 100%;">
+		<p>here in environment file googleProjectNumber is firebase sender id </p>
+		<img src="assets/images/push13.png" alt="" style="width: 100%;">
+		<p>Now Select Phonegap,Cordova, Ionic,Intel XDK as you can see image below and click next</p>
+		<h3 style="color: red;"><b>Note All configuration is same for all the project so add this keys and credentials
+				inside other project's environment.prod.ts and in environment.ts file as well </b></h3>
+		<img src="assets/images/push7.png" alt="" style="width: 100%;">
+		<p>Ok now our onesignal app ready to use copy this id as you can see in image bellow and paste in our
+			environment file </p>
+		<h3><b> Note After adding all the keys of OneSignal you have to run your app in android, to check whether it's
+				install or not, once you run app in android device, you can click on
+				check subscribed users button
+			</b>
+		</h3>
+		<img src="assets/images/push8.png" alt="" style="width: 100%;">
+		<p>Paste this app id inside our environment file as image bellow </p>
+		<img src="assets/images/push12.png" alt="" style="width: 100%;">
+		<p>Now for Rest key inside environment file go to account settings inside OneSignal account as you can see in
+			image bellow and click on Account & API keys </p>
+		<img src="assets/images/push9.png" alt="" style="width: 100%;">
+		<p>It will redirected to you in API's page as you can see in image below, so copy respected project id and paste
+			in environment file </p>
+		<img src="assets/images/push10.png" alt="" style="width: 100%;">
+		<img src="assets/images/push14.png" alt="" style="width: 100%;">
+		<h3 style="color: red;"><b>Note All configuration is same for all the project so add this keys and credentials
+				inside other project's environment.prod.ts and in environment.ts file as well </b></h3>
+		<hr>
+		<h3 id="googleMaps"><strong>F) Google Maps Setup</strong> - <a href="#toc">top</a></h3>
+		<p>In this app we have used google maps for live Tracking of food orders. from drivers to customer locations for
+			accurate results. this feature make customer more trust on his order and timing.</p>
+		<p>in order to use google maps in our app we must have google maps keys with following permissions</p>
+		<ol>
+			<li>Geocoding API</li>
+			<li>Places API</li>
+			<li>Maps JavaScript API</li>
+			<li>Distance Matrix API</li>
+			<li>Directions API</li>
+		</ol>
+		<p>You can find and create keys at google cloud console visit this <a
+				href="https://console.cloud.google.com/google/maps-apis/start?pli=1">https://console.cloud.google.com/google/maps-apis/start?pli=1</a>
+		</p>
+		<p>for more about google maps key please follow this instructions <a
+				href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiAjpqA76bpAhWMJCsKHQ1NAUMYABAAGgJzZg&ohost=www.google.com&cid=CAESQeD2mlEuIq-o2NAYQGTXSzkugvLfLkdb0SrUV8d_J7cmc_lQczQ15AfM6UkGXEk0N7OAGC-xohO0d4aVBWb83s-x&sig=AOD64_2mguemXSbeCADiPIAbmuBjsLnWMQ&q=&ved=2ahUKEwjj05GA76bpAhWtlEsFHcPWA8gQ0Qx6BAgREAE&adurl="
+				target="_blank">here</a>
+		</p>
+		<p>After creating keys with respected permission add this keys in all the project
+			(UserApp,RestaunrantApp,DriverApp)</p>
+		<p>Open index.html inside src/ and add your google maps keys as you can see image bellow</p>
+		<img src="assets/images/maps.png" alt="" width="100%">
+		<h3 style="color: red;"><b>Note All configuration is same for all the project so add this keys and credentials
+				inside other project's environment.prod.ts and in environment.ts file as well </b></h3>
+
+
+
+
+		<h3 id="stripeKeys"><strong>G) Stripe Payment Setup</strong> - <a href="#toc">top</a></h3>
+		<p>Stripe allows individuals and businesses to make and receive payments over the Internet</p>
+		<p>using stripe user can pay with your debit/credit card</p>
+		<p>For accepting payment from stripe we need stripe keys, follow this link for more about stripe keys <a
+				href="https://stripe.com/docs/keys" target="_blank">https://stripe.com/docs/keys</a> </p>
+		<p>You can get your stripe keys here <a href="https://dashboard.stripe.com/"
+				target="_blank">https://dashboard.stripe.com/</a> </p>
+		<h3>Follow the instructions closely and it will work smoothly!
+		</h3>
+		<p>Create and confirm your free Stripe account</p>
+		<p>Creating a Stripe account is free and you can delete it anytime. If you already have a Stripe account (for
+			another
+			project), it's better to create a new one to avoid any interference.
+			<br>
+			Note that right now, once you have configured your Stripe account in your Sharetribe marketplace, you won't
+			be able to
+			change it to another one. You can always update all details (bank account, account name...) in your Stripe
+			dashboard but
+			using another new account later isn't possible for the time being.
+			<br>
+			To create your Stripe account:
+		</p>
+		<ul>
+			<li>Go to <a href="https://dashboard.stripe.com/register">https://dashboard.stripe.com/register</a></li>
+			<img src="assets/images/stripe1.png" alt="" width="100%">
+			<li>Fill in the required fields, then create your Stripe account</li>
+			<p></p>
+			<p>Great! You can skip the first question by clicking "Skip for now" and you now have to confirm your Stripe
+				email to
+				confirm your account.
+			</p>
+			<p></p>
+			<h3>Confirm your Stripe account</h3>
+			<p>To confirm your Stripe email and account:</p>
+			<p></p>
+			<li>Check your email inbox and look for a confirmation email sent from Stripe (by <a
+					href="mailto:support@stripe.com" rel="nofollow noopener noreferrer"
+					target="_blank"><i>support@stripe.com</i></a>) named <i>Confirm your Stripe
+					email address!</i>
+			</li>
+			<img src="assets/images/stripe2.png" alt="" width="100%">
+			<li>Click the confirmation link in this email and log in with your credentials recently created</li>
+			<img src="assets/images/stripe3.jpeg" alt="" width="100%">
+			<p>Yeah! Your Stripe account is now confirmed. You should now activate it to be able to receive money via
+				this Stripe
+				account.</p>
+			<h3><b>Activate your Stripe account
+				</b></h3>
+			<p>As you will receive money from your users via your Stripe account, you have to provide some details such
+				as your address
+				and your bank account. This data is secured by Stripe and won't be shared with anyone.
+			</p>
+			<p>To activate your Stripe account:</p>
+			<li>Log in your Stripe account and click the Activate your account link in the left menu.</li>
+			<img src="assets/images/stripe4.png" alt="" width="100%">
+
+
+			<li>Complete all the fields according to the instructions and set <i>Your website</i> to your Sharetribe
+				marketplace
+				address when asked. It's OK to activate your account as an individual, you don't need a company ID.
+				Stripe may
+				review your account later but you are able to activate it immediately.</li>
+			<li>The activation form varies based on your country, so select that first!</li>
+			<li>Any doubts or questions? <a href="mailto:help@sharetribe.com" rel="nofollow noopener noreferrer"
+					target="_blank">Contact Sharetribe's support</a>.</li>
+			<li>Once completed, click "Activate account".</li>
+			<li>Your Stripe account may still need to be reviewed by Stripe. It's automatic, and it should be a very
+				quick
+				process.</li>
+			<img src="assets/images/stripe5.png" alt="" width="100%">
+			<li>After the automatic activation process, you may need to provide additional information to Stripe for
+				identity
+				verification. If you get this notification, click on "Review" on the dashboard as shown below. If you
+				are not prompted
+				for additional information, you can move to the next step.</li>
+			<img src="assets/images/stripe6.png" alt="" width="100%">
+			<p>Good job! Now you need to enable Connect in your platform so your sellers can add their bank details in
+				their settings.
+			</p>
+			<h3>Enable Stripe Connect in your platform</h3>
+			<p>Sharetribe uses the Stripe Connect features with Custom Accounts and you have to enable it to enjoy those
+				features.</p>
+			<p><b>This step is important: without this step, providers will not be able to receive money and buyers will
+					not be able to
+					start any transaction.
+				</b></p>
+			<h3>To enable Stripe Connect:</h3>
+			<li>Click the Connect left menu item.</li>
+			<img src="assets/images/stripe7.png" alt="" width="100%">
+			<li>Click the Get started button.</li>
+			<img src="assets/images/stripe8.png" alt="" width="100%">
+			<li>Select "Build a platform or marketplace" from the prompt.</li>
+			<img src="assets/images/stripe9.png" alt="" width="100%">
+			<p>At this point, Stripe may have to review your account. If that's the case, <a
+					href="https://help.sharetribe.com/sharetribe-go-payments-and-transactions/online-payments-with-stripe/how-to-apply-for-stripe-connect-review-us-accounts-only">you
+					can learn more about this process here</a>.</p>
+			<li>After a few seconds or the review process, you should see your Connect dashboard. From the left sidebar,
+				go to
+				<i>Settings</i> then <i>Connect settings</i>, at <a href="https://dashboard.stripe.com/settings"
+					rel="nofollow noopener noreferrer" target="_blank">https://dashboard.stripe.com/settings</a>
+			</li>
+			<img src="assets/images/stripe10.png" alt="" width="100%">
+
+			<li>Make sure that <i>Custom</i> is enabled in the <i>Account types</i> section.&nbsp;</li>
+			<li>If you see a message on this screen that your platform profile needs to be completed, click "Start" on
+				the
+				notification and provide the additional information required.&nbsp;</li>
+			<li>Stripe may still need to review your platform and account details. However, you can already move to the
+				next
+				step.&nbsp;</li>
+			<img src="assets/images/stripe11.png" alt="" width="100%">
+			<p>Great! You now have to get your API keys and input them into your marketplace.</p>
+			<h3>Get your API keys from Stripe and add them to your Sharetribe marketplace</h3>
+			<p>API keys are some text strings that have one technical purpose: link your Sharetribe marketplace with
+				your Stripe
+				account, so you can manage payments in your marketplace.</p>
+			<p>First, get your API keys from Stripe:</p>
+			<li>Click "Developers" → "API Keys" in the left menu item.</li>
+			<img src="assets/images/stripe12.png" alt="" width="100%">
+			<li>Make sure that <b>you are not using test data</b>. If this is the case, switch the <i>View test data</i>
+				toggle.
+				Test API keys will <b>not</b> work in your Sharetribe marketplace.</li>
+			<img src="assets/images/stripe13.png" alt="" width="100%">
+			<li>Copy the value from the <i>Publishable key</i> row, from the <i>Token</i> column. It should look like
+				<code>pk_live_somelongrandomvaluelikeVqFze9etc</code>&nbsp;</li>
+			<li>Go back to your Stripe account, in the API tab and click the Reveal live key token button.</li>
+			<img src="assets/images/stripe15.png" alt="" width="100%">
+
+			<li>A new window will pop up with the secret key. <b>Note: You won't be able to see the key again after
+					this. Make
+					sure you copy it and save it somewhere safe and private.</b>
+			</li>
+			<li>Copy the value of the <i>Secret key</i>. It should look like
+				sk_live_somelongrandomvaluelike0Rx3jvetc&nbsp;</li>
+			<li>Paste this key to environment file </li>
+			<img src="assets/images/stripeenv.png" alt="" width="100%">
+			<p>That's it! You have now connected your Stripe account and are ready to receive payments in your app!</p>
+		</ul>
+		<p></p>
+
+
+		<h3 id="paypalKeys"><strong>H) PayPal Payment setup</strong> - <a href="#toc">top</a></h3>
+		<p>PayPal is online payments system that supports online money transfers and serves as an electronic alternative
+			to traditional paper
+			methods like checks and money orders</p>
+		<p>in this app we have used paypal for accepting payments.for accepting payment from paypal we need PayPal
+			Applications </p>
+		<p>
+			<span>To create a Paypal App, go and visit: </span><a target="_blank"
+				href="https://developer.paypal.com/developer/applications">https://developer.paypal.com/developer/applications</a>
+		</p>
+		<p><strong>Important:</strong> To use live PayPal app, your app must be approved by PayPal. Read
+			PayPal app review submission steps <a href="#app_review_submission_step">here</a></p>
+		<p>You need to be logged in to your PayPal account to be able to access their developer page. So first, login to
+			your
+			PayPal account and then follow the link above to get to their developer page. This should look similar to
+			the one shown
+			in the image below:
+		</p>
+		<img src="assets/images/paypal1.png" alt="" width="100%">
+		<p>When you click on "Create a App", A new window will pop up (see image below). Enter a App name and Sandbox
+			developer
+			account. Now Click on Create App.
+		</p>
+		<img src="assets/images/paypal2.png" alt="" width="100%">
+		<p>By clicking on Create App, it will redirect you to the settings page for your new PayPal App. page will look
+			like as
+			mentioned in the image below:
+		</p>
+		<img src="assets/images/paypal3.png" alt="" width="100%">
+		<p><b>Important: Use the "Return URI" field same as the Paypal Callback URL meentioned on the social login
+				setting page. If
+				these entries do not completely match the URL of your website, the application won't work.
+			</b></p>
+		<p>Underneath the "App feature options" First, uncheck "Accept Payments", "Invoicing", "Payouts" and keep only
+			"Log In with
+			PayPal" as checked.
+		</p>
+		<img src="assets/images/paypal4.png" alt="" width="100%">
+		<p>Now, Copy the Client ID (See
+			image
+			below).
+		</p>
+
+		<img src="assets/images/paypal5.png" alt="" width="100%">
+		<p>Paste Client ID in environment file </p>
+		<img src="assets/images/payenv.png" alt="" width="100%">
+		<p>Important: When you copy and paste all the needed IDs and Keys, make sure, that you don't have any empty
+			spaces, either
+			at the beginning nor at the end of these entries. If you have any empty spaces, then the Application won't
+			work and will
+			show an error message when you try to connect to the App.
+		</p>
+		<h3 id="adminSetup"><strong>I) Admin Panel Setup</strong> - <a href="#toc">top</a></h3>
+		<strong>Install depenencies</strong>
+		<p>Enter below command for installing dependencies </p>
+		<p>npm i</p>
+		<p>after instatting dependencies run below command to run admin panel locally</p>
+		<p>ng serve</p>
+		<p>After successfully compiled and running app visit below link </p>
+		<p><a href="http://localhost:4200/" target="_blank">http://localhost:4200/</a></p>
+		<p>As first time you have to create your admin login credentials </p>
+		<img src="assets/images/adminProfile.png" alt="" width="100%">
+		<p></p>
+
+
+		<h3 id="videoLinks"><strong>J) Video Installations Guides</strong> - <a href="#toc">top</a></h3>
+		<h1>Checkout video tutorial for easy to installation </h1>
+		<h2></h2>
+		<iframe width="894" height="503" src="https://www.youtube.com/embed/O-rKUsXTlAo" frameborder="0"
+			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<h2></h2>
+		<p></p>
+		<h3 id="sources"><strong>K) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+
+		<p>I've used the following images, icons or other files as listed.
+
+		<ul>
+			<li>flaticons <a href="https://www.flaticon.com/">here</a> </li>
+			<li>freepik <a href="http://freepik.com/">here</a> </li>
+			<li>pixabay <a href="https://pixabay.com/">here</a></li>
+		</ul>
+
+		<hr>
+
+
+
+		<p>Once again, thank you so much for purchasing this app. As I said at the beginning, I'd be glad to help you
+			if you have any questions relating to this app. No guarantees, but I'll do my best to assist. If you have
+			a more general question relating to the themes on ThemeForest, you might consider visiting the forums and
+			asking your question in the "Item Discussion" section.</p>
+
+		<p class="append-bottom alt large"><strong>initappz (Rahul Jograna)</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+
+</html>
